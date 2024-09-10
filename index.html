@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Generator</title>
+    <!-- <link rel="stylesheet" href="script.js"> -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .invoice-box {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .title {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        table th {
+            background-color: #f2f2f2;
+            padding: 8px;
+        }
+
+        table td {
+            padding: 8px;
+        }
+
+        .totals {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .totals .label {
+            font-weight: bold;
+        }
+
+        .signature {
+            margin-top: 50px;
+            text-align: right;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invoice-box">
+        <div class="title">Invoice</div>
+        
+        <table>
+            <tr>
+                <th colspan="2">Seller Details</th>
+            </tr>
+            <tr>
+                <td>Name: <span id="sellerName"></span></td>
+                <td>PAN: <span id="sellerPan"></span></td>
+            </tr>
+            <tr>
+                <td>Address: <span id="sellerAddress"></span></td>
+                <td>GST: <span id="sellerGst"></span></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">Buyer Details</th>
+            </tr>
+            <tr>
+                <td>Name: <span id="buyerName"></span></td>
+                <!-- <td>State: <span id="buyerState"></span></td> -->
+            </tr>
+            <tr>
+                <td>Address: <span id="buyerAddress"></span></td>
+                <!-- <td>Pincode: <span id="buyerPincode"></span></td> -->
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Item Description</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+                <th>Net Amount</th>
+            </tr>
+            <tbody id="itemTable"></tbody>
+        </table>
+
+        <div class="totals">
+            <p class="label">Total: $<span id="totalAmount"></span></p>
+            <p class="label" id="taxLabel"></p>
+            <p class="label">Grand Total: $<span id="grandTotal"></span></p>
+            <p class="label">Amount in Words: <span id="amountInWords"></span></p>
+        </div>
+
+        <div class="signature">
+            <p>Authorised Signatory</p>
+        </div>
+
+        <button onclick="generateInvoice()">Generate Invoice</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
